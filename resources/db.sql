@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2021 a las 13:17:36
+-- Tiempo de generación: 26-11-2021 a las 13:58:42
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -35,6 +35,20 @@ CREATE TABLE `address` (
   `postalCode` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `address`
+--
+
+INSERT INTO `address` (`id`, `streetAddress`, `city`, `state`, `postalCode`) VALUES
+(33, 'San Jone', '126', 'CA', '394221'),
+(34, 'New York', '89', 'WA', '09889'),
+(35, 'San Diego', '55', 'CA', '098765'),
+(36, 'Salt lake city', '90', 'UT', '457320'),
+(37, 'Louisville', '43', 'KNT', '445321'),
+(38, '128', 'Atlanta', 'GEO', '394221'),
+(39, 'Nashville', '1', 'TN', '90143'),
+(40, 'New Orleans', '126', 'LU', '63281');
+
 -- --------------------------------------------------------
 
 --
@@ -49,22 +63,23 @@ CREATE TABLE `employee` (
   `gender` enum('Male','Female') NOT NULL,
   `age` int(2) NOT NULL,
   `phoneNumber` varchar(40) NOT NULL,
-  `adressId` int(255) NOT NULL
+  `addressId` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `employee`
 --
 
-INSERT INTO `employee` (`id`, `name`, `lastName`, `email`, `gender`, `age`, `phoneNumber`, `adressId`) VALUES
-(1, 'Rack', 'Lei', 'jackon@network.com', 'Male', 24, '2147483647', 1),
-(2, 'John', 'Doe', 'jhondoe@foo.com', 'Male', 34, '1283645645', 2),
-(3, 'Leila', 'Mills', 'mills@leila.com', 'Female', 29, '2147483647', 3),
-(4, 'Richard', 'Desmond', 'dismond@foo.com', 'Male', 30, '90876987654', 4),
-(5, 'Susan', 'Smith', 'susanmith@baz.com', 'Female', 28, '224355488976', 5),
-(6, 'Brad', 'Simpson', 'brad@foo.com', 'Male', 40, '6854634522', 6),
-(7, 'Neil', 'Walker', 'walkerneil@baz.com', 'Male', 42, '4537278819', 7),
-(8, 'Robert', 'Thomson', 'jackon@network.com', 'Male', 24, '91232876454', 8);
+INSERT INTO `employee` (`id`, `name`, `lastName`, `email`, `gender`, `age`, `phoneNumber`, `addressId`) VALUES
+(18, 'antonio', 'antonio', 'antonio@hotmail.com', 'Male', 20, '156423546', 37),
+(19, 'Rack', 'Lei', 'jackon@network.com', 'Male', 24, '2147483647', 33),
+(20, 'John', 'Doe', 'jhondoe@foo.com', 'Male', 34, '1283645645', 34),
+(21, 'Leila', 'Mills', 'mills@leila.com', 'Female', 29, '2147483647', 35),
+(22, 'Richard', 'Desmond', 'dismond@foo.com', 'Male', 30, '2147483647', 36),
+(23, 'Susan', 'Smith', 'susanmith@baz.com', 'Female', 28, '2147483647', 37),
+(24, 'Brad', 'Simpson', 'brad@foo.com', 'Male', 40, '2147483647', 38),
+(25, 'Neil', 'Walker', 'walkerneil@baz.com', 'Male', 42, '2147483647', 39),
+(26, 'Robert', 'Thomson', 'jackon@network.com', 'Male', 24, '2147483647', 40);
 
 --
 -- Índices para tablas volcadas
@@ -81,7 +96,7 @@ ALTER TABLE `address`
 --
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `adressId` (`adressId`);
+  ADD KEY `adressId` (`addressId`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -91,23 +106,23 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT de la tabla `address`
 --
 ALTER TABLE `address`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `address`
+-- Filtros para la tabla `employee`
 --
-ALTER TABLE `address`
-  ADD CONSTRAINT `address_ibfk_1` FOREIGN KEY (`id`) REFERENCES `employee` (`adressId`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `employee`
+  ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`addressId`) REFERENCES `address` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
