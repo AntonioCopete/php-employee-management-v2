@@ -19,11 +19,11 @@
         "email": "jhondoe@foo.com",
         "gender": "man",
         "city": "New York",
-        "streetAddress": "89",
+        "streetAddress": 89,
         "state": "WA",
-        "age": "34",
-        "postalCode": "09889",
-        "phoneNumber": "1283645645"
+        "age": 34,
+        "postalCode": 9889,
+        "phoneNumber": 1283645645
     },
     {
         "id": 3,

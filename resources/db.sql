@@ -7,6 +7,10 @@
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
+DROP DATABASE IF EXISTS employee_v2;
+CREATE DATABASE IF NOT EXISTS employee_v2;
+USE employee_v2;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -26,6 +30,10 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `address`
 --
+
+DROP TABLE IF EXISTS employee,
+                     address,
+                     uers;
 
 CREATE TABLE `address` (
   `id` int(255) NOT NULL,
@@ -66,6 +74,14 @@ CREATE TABLE `employee` (
   `addressId` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE users (
+    userId          INT AUTO_INCREMENT  NOT NULL,
+    name    VARCHAR(16)         NOT NULL,
+    password    VARCHAR(255)        NOT NULL,
+    email       VARCHAR(255)        NOT NULL,
+    PRIMARY KEY (userId)
+);
+
 --
 -- Volcado de datos para la tabla `employee`
 --
@@ -81,6 +97,9 @@ INSERT INTO `employee` (`id`, `name`, `lastName`, `email`, `gender`, `age`, `pho
 (25, 'Neil', 'Walker', 'walkerneil@baz.com', 'Male', 42, '2147483647', 39),
 (26, 'Robert', 'Thomson', 'jackon@network.com', 'Male', 24, '2147483647', 40);
 
+
+INSERT INTO users (name, password, email) VALUES
+('admin', '$2y$10$nuh1LEwFt7Q2/wz9/CmTJO91stTBS4cRjiJYBY3sVCARnllI.wzBC', 'admin@assemblerschool.com');
 --
 -- Índices para tablas volcadas
 --
