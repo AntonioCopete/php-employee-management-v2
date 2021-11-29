@@ -39,9 +39,7 @@ $("#jsGrid").jsGrid({
         headers: {
           "X-Requested-With": "XMLHttpRequest",
         },
-      }).then((response) => {
-        response.json();
-      }),
+      }).then((response) => response.json()),
     insertItem: async function (item) {
       let d = $.Deferred();
       let res = await getJSONData();
