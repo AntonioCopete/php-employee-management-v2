@@ -1,5 +1,9 @@
 <header class="main-header d-flex">
-  <div class="d-flex d-flex-center main-header__container">
+  <div
+    id="navBar"
+    data-base_url="<?php echo constant('URL') ?>"
+    class="d-flex d-flex-center main-header__container"
+  >
     <img
       src="../assets/images/logo.svg"
       alt="Company logo"

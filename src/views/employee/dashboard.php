@@ -26,7 +26,7 @@
     // checkSession(); // We check if the user has active login
     // checkSessionExpired(); // We check if the user session is still active
 
-    require_once("./assets/html/header.html");
+    require_once("./assets/html/header.php");
 
     ?>
     <div id="update-toast" class='update-toast toast align-items-center text-white bg-primary border-0 w-25 mx-auto my-5' role='alert' aria-live='assertive' aria-atomic='true'>

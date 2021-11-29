@@ -1,5 +1,44 @@
 <?php
 
+// class Database
+// {
+//     private $dbHost;
+//     private $dbUser;
+//     private $dbPass;
+//     private $dbName;
+//     private $dbCharset;
+
+//     private $statement;
+//     private $dbHandler;
+//     private $error;
+
+//         public function __construct() {
+
+//             $this->dbHost = constant('HOST');
+//             $this->dbName = constant('DB');
+//             $this->dbUser = constant('USER');
+//             $this->dbPass = constant('PASSWORD');
+//             $this->dbCharset = constant('CHARSET');
+
+//             $conn = 'mysql:host=' . $this->dbHost . ';dbname=' . $this->dbName;
+//             $options = array(
+//                 PDO::ATTR_PERSISTENT => true,
+//                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+//             );
+//             try {
+//                 $this->dbHandler = new PDO($conn, $this->dbUser, $this->dbPass, $options);
+//             } catch (PDOException $e) {
+//                 $this->error = $e->getMessage();
+//                 echo $this->error;
+//             }
+//         }
+
+//     public function query($sql) {
+//         $this->statement = $this->dbHandler->prepare($sql);
+//     }
+// }
+
+
 class Database
 {
     private $host;
@@ -36,3 +75,5 @@ class Database
         }
     }
 }
+
+

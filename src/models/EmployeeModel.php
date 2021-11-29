@@ -1,4 +1,5 @@
 <?php
+require_once 'entities/Employee.php';
 
 class EmployeeModel extends Model
 {
@@ -23,7 +24,7 @@ class EmployeeModel extends Model
                 $item->gender = $row['gender'];
                 $item->age = $row['age'];
                 $item->phoneNumber = $row['phoneNumber'];
-                $item->adressId = $row['adressId'];
+                $item->addressId = $row['addressId'];
 
                 array_push($items, $item);
             }
@@ -34,3 +35,5 @@ class EmployeeModel extends Model
         }
     }
 }
+
+

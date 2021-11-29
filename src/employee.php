@@ -26,7 +26,7 @@ require_once("./library/sessionHelper.php");
 checkSession(); // We check if the user has active login
 checkSessionExpired(); // We check if the user session is still active
 
-require_once("../assets/html/header.html");
+require_once("../assets/html/header.php");
 
 ?>
 

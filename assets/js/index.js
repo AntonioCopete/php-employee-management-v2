@@ -1,3 +1,5 @@
+const ENDPOINT =
+  document.getElementById("navBar").dataset["base_url"] + "employee";
 // const getJSONData = async () => {
 //   const url = "./employee/getEmployees";
 //   try {
@@ -33,7 +35,7 @@ $("#jsGrid").jsGrid({
     //   });
     // },
     loadData: () =>
-      fetch("employee/getEmployees", {
+      fetch(ENDPOINT + "/getEmployees", {
         headers: {
           "X-Requested-With": "XMLHttpRequest",
         },

@@ -9,5 +9,5 @@ class Employee
     public $gender;
     public $age;
     public $phoneNumber;
-    public $adressId;
+    public $addressId;
 }
