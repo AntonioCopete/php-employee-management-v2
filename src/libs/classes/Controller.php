@@ -2,23 +2,19 @@
 
 class Controller
 {
+    protected $model;
+    protected $view;
+
     public function __construct()
     {
         $this->view = new View();
     }
 
-    public function loadModel($model)
+    function loadModel($name)
     {
-        $modelName = $model . 'Model.php';
-        $url = MODELS . $modelName;
-
-        $this->model = new $modelName;
-
-        if (file_exists($url)) {
-            require $url;
-
-            $modelName = $model . "Model";
-            $this->model = new $modelName();
-        }
+        require_once MODELS . "/{$name}Model.php";
+        $name = ucfirst(strtolower($name));
+        $model = "{$name}Model";
+        $this->model = new $model;
     }
 }
