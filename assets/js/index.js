@@ -39,9 +39,7 @@ $("#jsGrid").jsGrid({
         headers: {
           "X-Requested-With": "XMLHttpRequest",
         },
-      }).then((response) => {
-        response.json();
-      }),
+      }).then((response) => response.json()),
     insertItem: async function (item) {
       let d = $.Deferred();
       let res = await getJSONData();
@@ -93,6 +91,24 @@ $("#jsGrid").jsGrid({
       headercss: "table__header",
       css: "table__row",
       width: 50,
+      validate: "required",
+    },
+    {
+      name: "lastName",
+      title: "Last name",
+      type: "text",
+      headercss: "table__header",
+      css: "table__row",
+      width: 50,
+      validate: "required",
+    },
+    {
+      name: "email",
+      title: "Email",
+      type: "text",
+      headercss: "table__header",
+      css: "table__row",
+      width: 80,
       validate: "required",
     },
     {
