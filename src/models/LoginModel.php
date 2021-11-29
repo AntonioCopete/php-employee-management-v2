@@ -7,22 +7,36 @@ class LoginModel extends Model
     }
 
     public function checkLogin($name, $password) {
-        // $this->db->query('SELECT * FROM users WHERE name = ? AND password = ?;');
+        $query = $this->db->connect()->prepare('SELECT * FROM users WHERE name = :name');
 
-        // $passwordHarsh =  password_hash($password, PASSWORD_DEFAULT);
+        $query->bindParam(":name", $name);
 
-        // //Bind value
-        // $this->db->bind(1, $name);
-        // $this->db->bind(2, $passwordHarsh);
+        try {
+            $query->execute();
+            $user = $query->fetch();
+            if (password_verify($password, $user["password"])) {
+                return [true];
+            }
+        } catch (PDOException $e) {
+            return [false, $e];
+        }
+    }
 
-        // $row = $this->db->single();
-
-        // $hashedPassword = $row->password;
-
-        // if (password_verify($password, $hashedPassword)) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
+    public function checkLogout() {
+        session_start();
+        unset($_SESSION['name']);
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(
+                session_name(),
+                "",
+                time() - 42000,
+                $params["path"],
+                $params["domain"],
+                $params["secure"],
+                $params["httpOnly"],
+            );
+        }
+        session_destroy();
     }
 }

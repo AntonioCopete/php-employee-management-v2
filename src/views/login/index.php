@@ -12,9 +12,9 @@
 </head>
 <body>
   <div class="mt-5 d-flex flex-column justify-content-center align-items-center">
-    <form class="login__form" method="POST" action="#">
+    <form class="login__form" method="POST" action="<?php echo constant('URL') ?>login/authUser">
       <label class="login__label">Username
-        <input class="login__input" type="text" name="username" required />
+        <input class="login__input" type="text" name="name" required />
       </label>
       <label class="login__label">Password
         <input class="login__input" type="password" name="password" required />

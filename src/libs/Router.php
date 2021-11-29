@@ -12,8 +12,6 @@ class Router
             $fileController = CONTROLLERS . "LoginController.php";
             require_once $fileController;
             $controller = new LoginController();
-
-            $controller->loadModel('Login');
             return false;
         }
 

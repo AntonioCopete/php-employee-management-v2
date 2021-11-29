@@ -25,7 +25,7 @@
       </ul>
     </nav>
   </div>
-  <a href="../library/loginController.php?status=logout" class="logout-btn"
+  <a href="<?php echo constant('URL') ?>login/logout" class="logout-btn"
     >Logout</a
   >
 </header>
