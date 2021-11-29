@@ -2,9 +2,32 @@
 
 class EmployeeController extends Controller
 {
-    public function __construct() {
+    public $id;
+    public function __construct()
+    {
         parent::__construct();
-        $this->view->render('employee/index');
+
+        $this->loadModel('employee');
     }
 
+    function dashboard()
+    {
+
+        $this->view->render('employee/dashboard');
+    }
+
+    function showEmployee()
+    {
+        $this->view->render('employee/employee');
+    }
+
+
+    public function getEmployees()
+    {
+        // echo "HELLO";
+        echo json_encode($this->model->get());
+        $employees = $this->model->get();
+        $this->view->employees = $employees;
+        var_dump($employees);
+    }
 }

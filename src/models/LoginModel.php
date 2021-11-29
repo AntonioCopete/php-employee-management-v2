@@ -7,22 +7,22 @@ class LoginModel extends Model
     }
 
     public function checkLogin($name, $password) {
-        $this->db->query('SELECT * FROM users WHERE name = ? AND password = ?;');
+        // $this->db->query('SELECT * FROM users WHERE name = ? AND password = ?;');
 
-        $passwordHarsh =  password_hash($password, PASSWORD_DEFAULT);
+        // $passwordHarsh =  password_hash($password, PASSWORD_DEFAULT);
 
-        //Bind value
-        $this->db->bind(1, $name);
-        $this->db->bind(2, $passwordHarsh);
+        // //Bind value
+        // $this->db->bind(1, $name);
+        // $this->db->bind(2, $passwordHarsh);
 
-        $row = $this->db->single();
+        // $row = $this->db->single();
 
-        $hashedPassword = $row->password;
+        // $hashedPassword = $row->password;
 
-        if (password_verify($password, $hashedPassword)) {
-            return true;
-        } else {
-            return false;
-        }
+        // if (password_verify($password, $hashedPassword)) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
     }
 }

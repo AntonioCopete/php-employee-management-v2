@@ -8,16 +8,6 @@ class LoginController extends Controller
     }
 
     public function authUser() {
-        // echo "checking login";
-
-        $checkLogin = $this->model->checkLogin($_POST["name"], $_POST["password"]);
-
-        if (isset($checkLogin)) {
-            header("Location: " . URL . "dashboard");
-            exit;
-        } else {
-            header("Location: " . URL . "login");
-            exit;
-        }
+        echo "checking login";
     }
 }

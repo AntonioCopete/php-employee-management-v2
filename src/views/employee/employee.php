@@ -8,13 +8,13 @@
   <title>Employee</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
-  <link rel="icon" href="./favicon.svg">
-  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="icon" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/css/main.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
   <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
-  <script type="module" src="./assets/js/index.js" defer></script>
-  <script type="module" src="./assets/js/gallery.js" defer></script>
+  <script type="module" src="../assets/js/index.js" defer></script>
+  <script type="module" src="../assets/js/gallery.js" defer></script>
 </head>
 
 <?php
@@ -34,40 +34,40 @@ require_once("./assets/html/header.html");
 
   <?php
 
-//   if (isset($_GET['info']) && $_GET['info'] == "success") {
-//     echo "
-//       <div class='align-items-center text-white bg-primary border-0 w-25 my-5' id='toast'>
-//         <div class='d-flex'>
-//           <div class='toast-body'>
-//             Employee successfully updated!
-//           </div>
-//         </div>
-//       </div>";
-//   }
+  //   if (isset($_GET['info']) && $_GET['info'] == "success") {
+  //     echo "
+  //       <div class='align-items-center text-white bg-primary border-0 w-25 my-5' id='toast'>
+  //         <div class='d-flex'>
+  //           <div class='toast-body'>
+  //             Employee successfully updated!
+  //           </div>
+  //         </div>
+  //       </div>";
+  //   }
 
-//   $jsonData = file_get_contents('../resources/employees.json');
-//   $usersData = json_decode($jsonData, true);
+  //   $jsonData = file_get_contents('../resources/employees.json');
+  //   $usersData = json_decode($jsonData, true);
 
-//   $newEmployee = end($usersData);
-//   $nextId = $newEmployee["id"] + 1;
+  //   $newEmployee = end($usersData);
+  //   $nextId = $newEmployee["id"] + 1;
 
-//   if (isset($_GET['employee'])) {
-//     $currentEmployee = [];
-//     foreach ($usersData as $user) {
-//       if ($user["id"] == $_GET['employee']) {
-//         $currentEmployee = $user;
-//       }
-//     }
+  //   if (isset($_GET['employee'])) {
+  //     $currentEmployee = [];
+  //     foreach ($usersData as $user) {
+  //       if ($user["id"] == $_GET['employee']) {
+  //         $currentEmployee = $user;
+  //       }
+  //     }
 
-//     if (isset($currentEmployee['avatar-field'])) {
-//       $seed = $currentEmployee['avatar-field'];
-//       echo "
-//       <figure>
-//         <img class='user-avatar' src='https://avatars.dicebear.com/api/bottts/$seed.svg' alt='User avatar'/>
-//         <figcaption class='text-center'>Current avatar</figcaption>
-//       </figure>";
-//     }
-//   }
+  //     if (isset($currentEmployee['avatar-field'])) {
+  //       $seed = $currentEmployee['avatar-field'];
+  //       echo "
+  //       <figure>
+  //         <img class='user-avatar' src='https://avatars.dicebear.com/api/bottts/$seed.svg' alt='User avatar'/>
+  //         <figcaption class='text-center'>Current avatar</figcaption>
+  //       </figure>";
+  //     }
+  //   }
 
   ?>
 

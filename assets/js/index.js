@@ -1,13 +1,13 @@
-const getJSONData = async () => {
-  const url = `../resources/employees.json`;
-  try {
-    const rawData = await fetch(url);
-    const data = await rawData.json();
-    return data;
-  } catch (error) {
-    alert("No database");
-  }
-};
+// const getJSONData = async () => {
+//   const url = "./employee/getEmployees";
+//   try {
+//     const rawData = await fetch(url);
+//     const data = await rawData.json();
+//     return data;
+//   } catch (error) {
+//     alert("No database");
+//   }
+// };
 
 $("#jsGrid").jsGrid({
   width: "100%",
@@ -21,17 +21,25 @@ $("#jsGrid").jsGrid({
   pageButtonCount: 5,
   deleteConfirm: "Do you really want to delete data?",
   controller: {
-    loadData: function () {
-      var d = $.Deferred();
-      return $.ajax({
-        url: "../resources/employees.json",
-        type: "GET",
-        dataType: "json",
-        success: function (data) {
-          return d.resolve(data);
+    // loadData: function () {
+    //   var d = $.Deferred();
+    //   return $.ajax({
+    //     url: "./employee/getEmployees",
+    //     type: "GET",
+    //     dataType: "json",
+    //     success: function (data) {
+    //       return d.resolve(data);
+    //     },
+    //   });
+    // },
+    loadData: () =>
+      fetch("employee/getEmployees", {
+        headers: {
+          "X-Requested-With": "XMLHttpRequest",
         },
-      });
-    },
+      }).then((response) => {
+        response.json();
+      }),
     insertItem: async function (item) {
       let d = $.Deferred();
       let res = await getJSONData();
@@ -40,7 +48,7 @@ $("#jsGrid").jsGrid({
       item["id"] = newID;
       return $.ajax({
         type: "POST",
-        url: "../src/library/employeeController.php",
+        url: "./src/library/employeeController.php",
         data: item,
         success: function (data) {
           return d.resolve(data);
@@ -52,7 +60,7 @@ $("#jsGrid").jsGrid({
       console.log(item);
       return $.ajax({
         type: "PUT",
-        url: "../src/library/employeeController.php",
+        url: "./src/library/employeeController.php",
         data: item,
         success: function (data) {
           return d.resolve(data);

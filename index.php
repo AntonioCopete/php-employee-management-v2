@@ -8,5 +8,3 @@ require_once "src/libs/classes/Model.php";
 require_once "src/libs/Database.php";
 
 $router = new Router();
-
-
