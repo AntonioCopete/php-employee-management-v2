@@ -1,0 +1,10 @@
+# Permission to rewrite the URL requests
+RewriteEngine On
+
+# If the file or the directory do not exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+
+# Redirect all request to index
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
