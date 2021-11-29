@@ -1,5 +1,5 @@
 const getJSONData = async () => {
-  const url = `../resources/employees.json`;
+  const url = `./resources/employees.json`;
   try {
     const rawData = await fetch(url);
     const data = await rawData.json();
@@ -24,7 +24,7 @@ $("#jsGrid").jsGrid({
     loadData: function () {
       var d = $.Deferred();
       return $.ajax({
-        url: "../resources/employees.json",
+        url: "./resources/employees.json",
         type: "GET",
         dataType: "json",
         success: function (data) {
@@ -40,7 +40,7 @@ $("#jsGrid").jsGrid({
       item["id"] = newID;
       return $.ajax({
         type: "POST",
-        url: "../src/library/employeeController.php",
+        url: "./src/library/employeeController.php",
         data: item,
         success: function (data) {
           return d.resolve(data);
@@ -52,7 +52,7 @@ $("#jsGrid").jsGrid({
       console.log(item);
       return $.ajax({
         type: "PUT",
-        url: "../src/library/employeeController.php",
+        url: "./src/library/employeeController.php",
         data: item,
         success: function (data) {
           return d.resolve(data);
