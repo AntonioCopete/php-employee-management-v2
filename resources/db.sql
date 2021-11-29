@@ -33,7 +33,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS employee,
                      address,
-                     uers;
+                     users;
 
 CREATE TABLE `address` (
   `id` int(255) NOT NULL,
