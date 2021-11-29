@@ -7,7 +7,17 @@ class LoginController extends Controller
         $this->view->render('login/index');
     }
 
-    public function checkLogin() {
-        echo "checking login";
+    public function authUser() {
+        // echo "checking login";
+
+        $checkLogin = $this->model->checkLogin($_POST["name"], $_POST["password"]);
+
+        if (isset($checkLogin)) {
+            header("Location: " . URL . "dashboard");
+            exit;
+        } else {
+            header("Location: " . URL . "login");
+            exit;
+        }
     }
 }

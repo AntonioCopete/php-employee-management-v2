@@ -12,7 +12,7 @@
         if(file_exists($url)) {
             require $url;
 
-            $modelName = $model . "Model.php";
+            $modelName = $model . "Model";
             $this->model = new $modelName();
         }
     }

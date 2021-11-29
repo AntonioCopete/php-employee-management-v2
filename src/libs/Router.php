@@ -12,6 +12,7 @@ class Router
             $fileController = CONTROLLERS . "LoginController.php";
             require_once $fileController;
             $controller = new LoginController();
+            $controller->loadModel('Login');
             return false;
         }
 
@@ -21,6 +22,7 @@ class Router
         if(file_exists($fileController)) {
             require_once $fileController;
             $controller = new $controller;
+            $controller->loadModel($url[0]);
 
             if(isset($url[1]) && $url[1]) {
                 $controller->{$url[1]}();
