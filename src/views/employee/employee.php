@@ -105,8 +105,8 @@ require_once("./assets/html/header.php");
       <div>
         <label for="gender">Gender</label>
         <select class="form__input" name="gender" id="gender">
-          <option>Man</option>
-          <option>Woman</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
           <option>Other</option>
         </select>
       </div>
