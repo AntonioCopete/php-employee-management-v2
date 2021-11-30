@@ -49,18 +49,15 @@ $("#jsGrid").jsGrid({
         },
         body: JSON.stringify(item),
       }).then((response) => response.json()),
-    updateItem: function (item) {
-      var d = $.Deferred();
-      console.log(item);
-      return $.ajax({
-        type: "PUT",
-        url: "./src/library/employeeController.php",
-        data: item,
-        success: function (data) {
-          return d.resolve(data);
+    updateItem: (item) =>
+      fetch(ENDPOINT + "/updateEmployeeJsGrid", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
         },
-      });
-    },
+        body: JSON.stringify(item),
+      }).then((response) => response.json()),
     deleteItem: function (item) {
       return $.ajax({
         type: "DELETE",
