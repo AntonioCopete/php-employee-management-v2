@@ -29,7 +29,6 @@ class EmployeeController extends Controller
 
     public function createEmployee()
     {
-        // echo "create Employee";
         $employee = $this->model->create($_POST);
         if ($employee) {
             header("Location: " . URL . "employee/dashboard");
@@ -56,5 +55,20 @@ class EmployeeController extends Controller
         $this->view->employee = $this->model->getEmployee($id);
         // echo $employee['name'];
         $this->view->render("employee/employee");
+    }
+
+    public function updateEmployee()
+    {
+        $employee = $this->model->update($_POST);
+        if ($employee) {
+            header("Location: " . URL . "employee/dashboard");
+            exit;
+        }
+    }
+
+    public function deleteEmployee()
+    {
+        $employee = json_decode(file_get_contents("php://input"), true);
+        $this->model->delete($employee['id']);
     }
 }

@@ -1,39 +1,18 @@
 const ENDPOINT =
   document.getElementById("navBar").dataset["base_url"] + "employee";
-// const getJSONData = async () => {
-//   const url = "./employee/getEmployees";
-//   try {
-//     const rawData = await fetch(url);
-//     const data = await rawData.json();
-//     return data;
-//   } catch (error) {
-//     alert("No database");
-//   }
-// };
 
 $("#jsGrid").jsGrid({
+  autoload: true,
   width: "100%",
   height: "600px",
   inserting: true,
   editing: true,
   sorting: true,
   paging: true,
-  autoload: true,
   pageSize: 10,
   pageButtonCount: 5,
   deleteConfirm: "Do you really want to delete data?",
   controller: {
-    // loadData: function () {
-    //   var d = $.Deferred();
-    //   return $.ajax({
-    //     url: "./employee/getEmployees",
-    //     type: "GET",
-    //     dataType: "json",
-    //     success: function (data) {
-    //       return d.resolve(data);
-    //     },
-    //   });
-    // },
     loadData: () =>
       fetch(ENDPOINT + "/getEmployees", {
         headers: {
@@ -49,18 +28,7 @@ $("#jsGrid").jsGrid({
         },
         body: JSON.stringify(item),
       }).then((response) => response.json()),
-    // updateItem: function (item) {
-    //   var d = $.Deferred();
-    //   console.log(item);
-    //   return $.ajax({
-    //     type: "PUT",
-    //     url: "./src/library/employeeController.php",
-    //     data: item,
-    //     success: function (data) {
-    //       return d.resolve(data);
-    //     },
-    //   });
-    // },
+
     updateItem: (item) =>
       fetch(ENDPOINT + "/updateEmployeeJsGrid", {
         method: "PUT",
@@ -70,15 +38,16 @@ $("#jsGrid").jsGrid({
         },
         body: JSON.stringify(item),
       }).then((response) => response.json()),
-    deleteItem: function (item) {
-      return $.ajax({
-        type: "DELETE",
-        url: "./library/employeeController.php",
-        data: item,
-      }).done(function () {
-        console.log("data deleted");
-      });
-    },
+
+    deleteItem: (item) =>
+      fetch(ENDPOINT + "/deleteEmployee", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+        },
+        body: JSON.stringify(item),
+      }).then((response) => response.json()),
   },
   fields: [
     {

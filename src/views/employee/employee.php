@@ -83,7 +83,7 @@ require_once("./assets/html/header.php");
     <button id="refresh-button" class="refresh-button">Refresh avatars</button>
   </div>
 
-  <form method="POST" action="<?php echo constant('URL') ?>employee/createEmployee" class="employee-form" class="form__input">
+  <form method="POST" action="<?php echo constant('URL') ?>employee/<?php echo isset($this->employee['id']) ? "updateEmployee" : "createEmployee" ?>" class="employee-form" class="form__input">
     <div class="form__row">
       <input name="id" id="id" value="">
       <input type="hidden" name="avatar-field" id="avatar-field" class="d-none">
