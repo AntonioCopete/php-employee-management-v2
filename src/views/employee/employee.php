@@ -85,59 +85,59 @@ require_once("./assets/html/header.php");
 
   <form method="POST" action="<?php echo constant('URL') ?>employee/<?php echo isset($this->employee['id']) ? "updateEmployee" : "createEmployee" ?>" class="employee-form" class="form__input">
     <div class="form__row">
-      <input name="id" id="id" value="">
+      <input type="hidden" name="id" id="id" value="<?php if (isset($this->employee['id']) && $this->employee['id']) echo $this->employee['id']; ?>">
       <input type="hidden" name="avatar-field" id="avatar-field" class="d-none">
       <div>
         <label for="name">Name</label>
-        <input class="form__input" type="text" name="name" id="name" required value="<?php echo $this->employee['name']; ?>">
+        <input class="form__input" type="text" name="name" id="name" required value="<?php if (isset($this->employee['name']) && $this->employee['name']) echo $this->employee['name']; ?>">
       </div>
       <div>
         <label for="last-name">Last Name</label>
-        <input class="form__input" type="text" name="lastName" id="lastName" required value="<?php echo $this->employee['lastName']; ?>">
+        <input class="form__input" type="text" name="lastName" id="lastName" required value="<?php if (isset($this->employee['lastName']) && $this->employee['lastName']) echo $this->employee['lastName']; ?>">
       </div>
     </div>
     <div class="form__row">
       <div>
         <label for="email-address">Email address</label>
-        <input class="form__input" type="email" name="email" id="email" required value="<?php echo $this->employee['lastName']; ?>">
+        <input class="form__input" type="email" name="email" id="email" required value=<?php if (isset($this->employee['email']) && $this->employee['email']) echo $this->employee['email']; ?>>
       </div>
       <div>
         <label for="gender">Gender</label>
         <select class="form__input" name="gender" id="gender">
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
+          <option value="Male" <?php if (isset($this->employee['gender']) && $this->employee['gender'] == "Male") echo "selected"; ?>>Male</option>
+          <option value="Female" <?php if (isset($this->employee['gender']) && $this->employee['gender'] == "Female") echo "selected"; ?>>Female</option>
           <option>Other</option>
         </select>
       </div>
     </div>
-    <div class="form__row">   
+    <div class="form__row">
       <div>
         <label for="city">City</label>
-        <input class="form__input" type="text" name="city" id="city" required value=<?= isset($_GET['employee']) ? $currentEmployee["city"] : "" ?>>
+        <input class="form__input" type="text" name="city" id="city" required value=<?php if (isset($this->employee['city']) && $this->employee['city']) echo $this->employee['city']; ?>>
       </div>
       <div>
         <label for="street-address">Street Address</label>
-        <input class="form__input" type="number" name="streetAddress" id="streetAddress" required value=<?= isset($_GET['employee']) ? $currentEmployee["streetAddress"] : "" ?>>
-      </div>    
+        <input class="form__input" type="number" name="streetAddress" id="streetAddress" required value=<?php if (isset($this->employee['streetAddress']) && $this->employee['streetAddress']) echo $this->employee['streetAddress']; ?>>
+      </div>
     </div>
     <div class="form__row">
       <div>
         <label for="state">State</label>
-        <input class="form__input" type="text" name="state" id="state" required value=<?= isset($_GET['employee']) ? $currentEmployee["state"] : "" ?>>
+        <input class="form__input" type="text" name="state" id="state" required value=<?php if (isset($this->employee['state']) && $this->employee['state']) echo $this->employee['state']; ?>>
       </div>
       <div>
         <label for="age">Age</label>
-        <input class="form__input" type="number" name="age" id="age" required value=<?= isset($_GET['employee']) ? $currentEmployee["age"] : "" ?>>
+        <input class="form__input" type="number" name="age" id="age" required value=<?php if (isset($this->employee['age']) && $this->employee['age']) echo $this->employee['age']; ?>>
       </div>
     </div>
     <div class="form__row">
       <div>
         <label for="postal-code">Postal Code</label>
-        <input class="form__input" type="number" name="postalCode" id="postalCode" required value=<?= isset($_GET['employee']) ? $currentEmployee["postalCode"] : "" ?>>
+        <input class="form__input" type="number" name="postalCode" id="postalCode" required value=<?php if (isset($this->employee['postalCode']) && $this->employee['postalCode']) echo $this->employee['postalCode']; ?>>
       </div>
       <div>
         <label for="phone-number">Phone Number</label>
-        <input class="form__input" type="number" name="phoneNumber" id="phoneNumber" required value=<?= isset($_GET['employee']) ? $currentEmployee["phoneNumber"] : "" ?>>
+        <input class="form__input" type="number" name="phoneNumber" id="phoneNumber" required value=<?php if (isset($this->employee['phoneNumber']) && $this->employee['phoneNumber']) echo $this->employee['phoneNumber']; ?>>
       </div>
     </div>
     <div class="btn-container">

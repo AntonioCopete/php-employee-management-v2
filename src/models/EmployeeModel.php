@@ -108,7 +108,7 @@ class EmployeeModel extends Model
             $query->execute();
             return [true];
         } catch (PDOException $e) {
-            return [];
+            return [false, $e];
         }
     }
 }
