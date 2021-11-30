@@ -29,7 +29,6 @@ class EmployeeController extends Controller
 
     public function createEmployee()
     {
-        // echo "create Employee";
         $employee = $this->model->create($_POST);
         if ($employee) {
             header("Location: " . URL . "employee/dashboard");
