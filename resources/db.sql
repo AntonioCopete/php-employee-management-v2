@@ -32,22 +32,13 @@ SET time_zone = "+00:00";
 --
 
 DROP TABLE IF EXISTS employee,
-                     address,
                      users;
-
-CREATE TABLE `address` (
-  `id` int(255) NOT NULL,
-  `streetAddress` varchar(40) NOT NULL,
-  `city` varchar(40) NOT NULL,
-  `state` varchar(40) NOT NULL,
-  `postalCode` varchar(7) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `address`
 --
 
-INSERT INTO `address` (`id`, `streetAddress`, `city`, `state`, `postalCode`) VALUES
+/* INSERT INTO `address` (`id`, `streetAddress`, `city`, `state`, `postalCode`) VALUES
 (33, 'San Jone', '126', 'CA', '394221'),
 (34, 'New York', '89', 'WA', '09889'),
 (35, 'San Diego', '55', 'CA', '098765'),
@@ -55,7 +46,7 @@ INSERT INTO `address` (`id`, `streetAddress`, `city`, `state`, `postalCode`) VAL
 (37, 'Louisville', '43', 'KNT', '445321'),
 (38, '128', 'Atlanta', 'GEO', '394221'),
 (39, 'Nashville', '1', 'TN', '90143'),
-(40, 'New Orleans', '126', 'LU', '63281');
+(40, 'New Orleans', '126', 'LU', '63281'); */
 
 -- --------------------------------------------------------
 
@@ -64,15 +55,30 @@ INSERT INTO `address` (`id`, `streetAddress`, `city`, `state`, `postalCode`) VAL
 --
 
 CREATE TABLE `employee` (
-  `id` int(255) NOT NULL,
+  `id` INT AUTO_INCREMENT  NOT NULL,
   `name` varchar(40) NOT NULL,
   `lastName` varchar(40) NOT NULL,
   `email` varchar(40) NOT NULL,
   `gender` enum('Male','Female') NOT NULL,
   `age` int(2) NOT NULL,
   `phoneNumber` varchar(40) NOT NULL,
-  `addressId` int(255) NOT NULL
+  `streetAddress` varchar(40) NOT NULL,
+  `city` varchar(40) NOT NULL,
+  `state` varchar(40) NOT NULL,
+  `postalCode` varchar(7) NOT NULL,
+  PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/* ALTER TABLE `employee`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27; */
+
+/* CREATE TABLE `address` (
+  `id` int(255) NOT NULL,
+  `streetAddress` varchar(40) NOT NULL,
+  `city` varchar(40) NOT NULL,
+  `state` varchar(40) NOT NULL,
+  `postalCode` varchar(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4; */
 
 CREATE TABLE users (
     userId          INT AUTO_INCREMENT  NOT NULL,
@@ -86,16 +92,25 @@ CREATE TABLE users (
 -- Volcado de datos para la tabla `employee`
 --
 
-INSERT INTO `employee` (`id`, `name`, `lastName`, `email`, `gender`, `age`, `phoneNumber`, `addressId`) VALUES
-(18, 'antonio', 'antonio', 'antonio@hotmail.com', 'Male', 20, '156423546', 37),
-(19, 'Rack', 'Lei', 'jackon@network.com', 'Male', 24, '2147483647', 33),
-(20, 'John', 'Doe', 'jhondoe@foo.com', 'Male', 34, '1283645645', 34),
-(21, 'Leila', 'Mills', 'mills@leila.com', 'Female', 29, '2147483647', 35),
-(22, 'Richard', 'Desmond', 'dismond@foo.com', 'Male', 30, '2147483647', 36),
-(23, 'Susan', 'Smith', 'susanmith@baz.com', 'Female', 28, '2147483647', 37),
-(24, 'Brad', 'Simpson', 'brad@foo.com', 'Male', 40, '2147483647', 38),
-(25, 'Neil', 'Walker', 'walkerneil@baz.com', 'Male', 42, '2147483647', 39),
-(26, 'Robert', 'Thomson', 'jackon@network.com', 'Male', 24, '2147483647', 40);
+INSERT INTO `employee` (`name`, `lastName`, `email`, `gender`, `age`, `phoneNumber`, `city`, `streetAddress`, `state`, `postalCode`) VALUES
+('Rack', 'Lei', 'jackon@network.com', 'Male', 24, '2147483647', 'New York', '89', 'WA', '09889'),
+('John', 'Doe', 'jhondoe@foo.com', 'Male', 34, '1283645645', 'San Diego', '55', 'CA', '098765'),
+('Leila', 'Mills', 'mills@leila.com', 'Female', 29, '2147483647', 'Salt lake city', '90', 'UT', '457320'),
+('Richard', 'Desmond', 'dismond@foo.com', 'Male', 30, '2147483647', 'Louisville', '43', 'KNT', '445321'),
+('Susan', 'Smith', 'susanmith@baz.com', 'Female', 28, '2147483647', '128', 'Atlanta', 'GEO', '394221'),
+('Brad', 'Simpson', 'brad@foo.com', 'Male', 40, '2147483647', 'Nashville', '1', 'TN', '90143'),
+('Neil', 'Walker', 'walkerneil@baz.com', 'Male', 42, '2147483647', 'New Orleans', '126', 'LU', '63281'),
+('Robert', 'Thomson', 'jackon@network.com', 'Male', 24, '2147483647', 'San Jone', '126', 'CA', '394221');
+
+/* INSERT INTO `address` (`id`, `streetAddress`, `city`, `state`, `postalCode`) VALUES
+(33, 'San Jone', '126', 'CA', '394221'),
+(34, 'New York', '89', 'WA', '09889'),
+(35, 'San Diego', '55', 'CA', '098765'),
+(36, 'Salt lake city', '90', 'UT', '457320'),
+(37, 'Louisville', '43', 'KNT', '445321'),
+(38, '128', 'Atlanta', 'GEO', '394221'),
+(39, 'Nashville', '1', 'TN', '90143'),
+(40, 'New Orleans', '126', 'LU', '63281'); */
 
 
 INSERT INTO users (name, password, email) VALUES
@@ -107,15 +122,15 @@ INSERT INTO users (name, password, email) VALUES
 --
 -- Indices de la tabla `address`
 --
-ALTER TABLE `address`
-  ADD PRIMARY KEY (`id`);
+/* ALTER TABLE `address`
+  ADD PRIMARY KEY (`id`); */
 
 --
 -- Indices de la tabla `employee`
 --
-ALTER TABLE `employee`
+/* ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `adressId` (`addressId`);
+  ADD KEY `adressId` (`addressId`); */
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -124,14 +139,14 @@ ALTER TABLE `employee`
 --
 -- AUTO_INCREMENT de la tabla `address`
 --
-ALTER TABLE `address`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+/* ALTER TABLE `address`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41; */
 
 --
 -- AUTO_INCREMENT de la tabla `employee`
 --
-ALTER TABLE `employee`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+/* ALTER TABLE `employee`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27; */
 
 --
 -- Restricciones para tablas volcadas
@@ -140,9 +155,9 @@ ALTER TABLE `employee`
 --
 -- Filtros para la tabla `employee`
 --
-ALTER TABLE `employee`
+/* ALTER TABLE `employee`
   ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`addressId`) REFERENCES `address` (`id`);
-COMMIT;
+COMMIT; */
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -24,7 +24,10 @@ class EmployeeModel extends Model
                 $item->gender = $row['gender'];
                 $item->age = $row['age'];
                 $item->phoneNumber = $row['phoneNumber'];
-                $item->addressId = $row['addressId'];
+                $item->state = $row['state'];
+                $item->postalCode = $row['postalCode'];
+                $item->city = $row['city'];
+                $item->streetAddress = $row['streetAddress'];
 
                 array_push($items, $item);
             }
