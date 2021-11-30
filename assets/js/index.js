@@ -41,7 +41,7 @@ $("#jsGrid").jsGrid({
         },
       }).then((response) => response.json()),
     insertItem: (item) =>
-      fetch(ENDPOINT + "/createEmployee", {
+      fetch(ENDPOINT + "/createEmployeeJsGrid", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

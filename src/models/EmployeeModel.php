@@ -38,20 +38,20 @@ class EmployeeModel extends Model
         }
     }
 
-    public function create($_post)
+    public function create($employee)
     {
         $query = $this->db->connect()->prepare("INSERT INTO employee (name, lastName, email, gender, age, phoneNumber, streetAddress, city, state, postalCode) VALUES (:name, :lastName, :email, :gender, :age, :phoneNumber, :streetAddress, :city, :state, :postalCode);");
 
-        $query->bindParam(":name", $_post["name"]);
-        $query->bindParam(":lastName", $_post["lastName"]);
-        $query->bindParam(":email", $_post["email"]);
-        $query->bindParam(":gender", $_post["gender"]);
-        $query->bindParam(":age", $_post["age"]);
-        $query->bindParam(":phoneNumber", $_post["phoneNumber"]);
-        $query->bindParam(":streetAddress", $_post["streetAddress"]);
-        $query->bindParam(":city", $_post["city"]);
-        $query->bindParam(":state", $_post["state"]);
-        $query->bindParam(":postalCode", $_post["postalCode"]);
+        $query->bindParam(":name", $employee["name"]);
+        $query->bindParam(":lastName", $employee["lastName"]);
+        $query->bindParam(":email", $employee["email"]);
+        $query->bindParam(":gender", $employee["gender"]);
+        $query->bindParam(":age", $employee["age"]);
+        $query->bindParam(":phoneNumber", $employee["phoneNumber"]);
+        $query->bindParam(":streetAddress", $employee["streetAddress"]);
+        $query->bindParam(":city", $employee["city"]);
+        $query->bindParam(":state", $employee["state"]);
+        $query->bindParam(":postalCode", $employee["postalCode"]);
 
         try {
             $query->execute();
@@ -60,5 +60,4 @@ class EmployeeModel extends Model
             return [false, $e];
         }
     }
-
 }

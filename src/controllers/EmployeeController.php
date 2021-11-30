@@ -37,4 +37,11 @@ class EmployeeController extends Controller
             exit;
         }
     }
+
+    public function createEmployeeJsGrid()
+    {
+        $employee = json_decode(file_get_contents("php://input"), true);
+        $newEmployee = $this->model->create($employee);
+        echo json_encode($newEmployee);
+    }
 }
