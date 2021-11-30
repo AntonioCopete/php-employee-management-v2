@@ -49,11 +49,6 @@ $("#jsGrid").jsGrid({
         },
         body: JSON.stringify(item),
       }).then((response) => response.json()),
-<<<<<<< HEAD
-    updateItem: (item) =>
-      fetch(ENDPOINT + "/updateEmployeeJsGrid", {
-        method: "POST",
-=======
     // updateItem: function (item) {
     //   var d = $.Deferred();
     //   console.log(item);
@@ -69,17 +64,12 @@ $("#jsGrid").jsGrid({
     updateItem: (item) =>
       fetch(ENDPOINT + "/updateEmployeeJsGrid", {
         method: "PUT",
->>>>>>> f5161f8d18a6032f7672918038307df04c1e7347
         headers: {
           "Content-Type": "application/json",
           "X-Requested-With": "XMLHttpRequest",
         },
         body: JSON.stringify(item),
       }).then((response) => response.json()),
-<<<<<<< HEAD
-=======
-
->>>>>>> f5161f8d18a6032f7672918038307df04c1e7347
     deleteItem: function (item) {
       return $.ajax({
         type: "DELETE",
@@ -207,7 +197,7 @@ $("#jsGrid").jsGrid({
     },
   ],
   rowClick: function (args) {
-    location.href = "./employee.php?employee=" + args.item.id;
+    location.href = "./showEmployeeById/" + args.item.id;
   },
   onItemUpdated: function () {
     let toast = document.getElementById("update-toast");

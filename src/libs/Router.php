@@ -27,7 +27,7 @@ class Router
 
                 if (method_exists($controller, $url[1])) {
                     if (isset($url[2])) {
-                        $controller->{$url[1]($url[2])};
+                        $controller->{$url[1]}($url[2]);
                     } else {
                         $controller->{$url[1]}();
                     }

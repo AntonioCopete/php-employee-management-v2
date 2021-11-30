@@ -50,4 +50,10 @@ class EmployeeController extends Controller
         $newEmployee = $this->model->update($employee);
         echo json_encode($newEmployee);
     }
+
+    public function showEmployeeById($id)
+    {
+        $this->view->render("employee/employee");
+        $this->view->employee = $this->model->getEmployee($id);
+    }
 }
