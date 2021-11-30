@@ -34,7 +34,6 @@ class Router
                 }
             }
         } else {
-
             require_once "src/controllers/ErrorController.php";
             $controller = new ErrorController();
         }

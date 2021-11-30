@@ -85,21 +85,21 @@ require_once("./assets/html/header.php");
 
   <form method="POST" action="<?php echo constant('URL') ?>employee/createEmployee" class="employee-form" class="form__input">
     <div class="form__row">
-      <input type="hidden" name="id" id="id" value="<?php if(isset($employee['id']) && $employee['id']) echo $employee['id']; ?>">
+      <input name="id" id="id" value="">
       <input type="hidden" name="avatar-field" id="avatar-field" class="d-none">
       <div>
         <label for="name">Name</label>
-        <input class="form__input" type="text" name="name" id="name" required value="<?php if(isset($employee['name']) && $employee['name']) echo $employee['name']; ?>">
+        <input class="form__input" type="text" name="name" id="name" required value="<?php echo $this->employee['name']; ?>">
       </div>
       <div>
         <label for="last-name">Last Name</label>
-        <input class="form__input" type="text" name="lastName" id="lastName" required value="<?php if(isset($employee['lastName']) && $employee['lastName']) echo $employee['lastName']; ?>">
+        <input class="form__input" type="text" name="lastName" id="lastName" required value="<?php echo $this->employee['lastName']; ?>">
       </div>
     </div>
     <div class="form__row">
       <div>
         <label for="email-address">Email address</label>
-        <input class="form__input" type="email" name="email" id="email" required value=<?= isset($_GET['employee']) ? $currentEmployee["email"] : "" ?>>
+        <input class="form__input" type="email" name="email" id="email" required value=<?= echo $this->employee['email']; ?>">
       </div>
       <div>
         <label for="gender">Gender</label>
