@@ -99,7 +99,7 @@ require_once("./assets/html/header.php");
     <div class="form__row">
       <div>
         <label for="email-address">Email address</label>
-        <input class="form__input" type="email" name="email" id="email" required value=<?= echo $this->employee['email']; ?>">
+        <input class="form__input" type="email" name="email" id="email" required value="<?php echo $this->employee['lastName']; ?>">
       </div>
       <div>
         <label for="gender">Gender</label>
@@ -110,7 +110,7 @@ require_once("./assets/html/header.php");
         </select>
       </div>
     </div>
-    <div class="form__row">
+    <div class="form__row">   
       <div>
         <label for="city">City</label>
         <input class="form__input" type="text" name="city" id="city" required value=<?= isset($_GET['employee']) ? $currentEmployee["city"] : "" ?>>
@@ -118,7 +118,7 @@ require_once("./assets/html/header.php");
       <div>
         <label for="street-address">Street Address</label>
         <input class="form__input" type="number" name="streetAddress" id="streetAddress" required value=<?= isset($_GET['employee']) ? $currentEmployee["streetAddress"] : "" ?>>
-      </div>
+      </div>    
     </div>
     <div class="form__row">
       <div>
