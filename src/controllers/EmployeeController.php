@@ -47,7 +47,7 @@ class EmployeeController extends Controller
     public function updateEmployeeJsGrid()
     {
         $employee = json_decode(file_get_contents("php://input"), true);
-        $updateEmployee = $this->model->update($employee);
-        echo json_encode($updateEmployee);
+        $newEmployee = $this->model->update($employee);
+        echo json_encode($newEmployee);
     }
 }

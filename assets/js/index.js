@@ -49,15 +49,37 @@ $("#jsGrid").jsGrid({
         },
         body: JSON.stringify(item),
       }).then((response) => response.json()),
+<<<<<<< HEAD
     updateItem: (item) =>
       fetch(ENDPOINT + "/updateEmployeeJsGrid", {
         method: "POST",
+=======
+    // updateItem: function (item) {
+    //   var d = $.Deferred();
+    //   console.log(item);
+    //   return $.ajax({
+    //     type: "PUT",
+    //     url: "./src/library/employeeController.php",
+    //     data: item,
+    //     success: function (data) {
+    //       return d.resolve(data);
+    //     },
+    //   });
+    // },
+    updateItem: (item) =>
+      fetch(ENDPOINT + "/updateEmployeeJsGrid", {
+        method: "PUT",
+>>>>>>> f5161f8d18a6032f7672918038307df04c1e7347
         headers: {
           "Content-Type": "application/json",
           "X-Requested-With": "XMLHttpRequest",
         },
         body: JSON.stringify(item),
       }).then((response) => response.json()),
+<<<<<<< HEAD
+=======
+
+>>>>>>> f5161f8d18a6032f7672918038307df04c1e7347
     deleteItem: function (item) {
       return $.ajax({
         type: "DELETE",
