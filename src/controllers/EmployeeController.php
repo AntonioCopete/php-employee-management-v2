@@ -31,7 +31,7 @@ class EmployeeController extends Controller
     {
         // echo "create Employee";
         $employee = $this->model->create($_POST);
-        echo json_encode($employee);
+        // echo json_encode($employee);
         if ($employee) {
             header("Location: " . URL . "employee/dashboard");
             exit;
@@ -50,5 +50,12 @@ class EmployeeController extends Controller
         $employee = json_decode(file_get_contents("php://input"), true);
         $newEmployee = $this->model->update($employee);
         echo json_encode($newEmployee);
+    }
+
+    public function showEmployeeById($id)
+    {
+        var_dump($id);
+        $this->view->employee = $this->model->getEmployee($id);
+        $this->view->render("employee/employee");
     }
 }

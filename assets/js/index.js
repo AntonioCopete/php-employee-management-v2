@@ -198,7 +198,7 @@ $("#jsGrid").jsGrid({
     },
   ],
   rowClick: function (args) {
-    location.href = "./employee.php?employee=" + args.item.id;
+    location.href = "./showEmployeeById/" + args.item.id;
   },
   onItemUpdated: function () {
     let toast = document.getElementById("update-toast");
