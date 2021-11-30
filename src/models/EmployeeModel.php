@@ -99,4 +99,16 @@ class EmployeeModel extends Model
             return [];
         }
     }
+
+    public function delete($employeeId)
+    {
+        $query = $this->db->connect()->prepare("DELETE FROM employee WHERE id = $employeeId;");
+
+        try {
+            $query->execute();
+            return [true];
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
 }

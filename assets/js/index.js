@@ -12,13 +12,13 @@ const ENDPOINT =
 // };
 
 $("#jsGrid").jsGrid({
+  autoload: true,
   width: "100%",
   height: "600px",
   inserting: true,
   editing: true,
   sorting: true,
   paging: true,
-  autoload: true,
   pageSize: 10,
   pageButtonCount: 5,
   deleteConfirm: "Do you really want to delete data?",
@@ -70,15 +70,24 @@ $("#jsGrid").jsGrid({
         },
         body: JSON.stringify(item),
       }).then((response) => response.json()),
-    deleteItem: function (item) {
-      return $.ajax({
-        type: "DELETE",
-        url: "./library/employeeController.php",
-        data: item,
-      }).done(function () {
-        console.log("data deleted");
-      });
-    },
+    // deleteItem: function (item) {
+    //   return $.ajax({
+    //     type: "DELETE",
+    //     url: "./library/employeeController.php",
+    //     data: item,
+    //   }).done(function () {
+    //     console.log("data deleted");
+    //   });
+    // },
+    deleteItem: (item) =>
+      fetch(ENDPOINT + "/deleteEmployee", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+        },
+        body: JSON.stringify(item),
+      }).then((response) => response.json()),
   },
   fields: [
     {
