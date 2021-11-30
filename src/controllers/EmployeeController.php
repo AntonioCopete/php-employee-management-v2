@@ -29,7 +29,10 @@ class EmployeeController extends Controller
 
     public function createEmployee()
     {
+        // echo "create Employee";
         $employee = $this->model->create($_POST);
         echo json_encode($employee);
+        // $this->view->render('employee/dashboard');
+
     }
 }

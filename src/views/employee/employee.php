@@ -83,7 +83,7 @@ require_once("./assets/html/header.php");
     <button id="refresh-button" class="refresh-button">Refresh avatars</button>
   </div>
 
-  <form method="POST" action="./library/employeeController.php" class="employee-form">
+  <form method="POST" action="<?php echo constant('URL') ?>employee/createEmployee" class="employee-form">
     <div class="form__row">
       <!-- <input type="hidden" name="id" id="id" class="d-none" value=<?= isset($_GET['employee']) ? $currentEmployee["id"] : $nextId ?>> -->
       <input type="hidden" name="id" id="id" class="d-none" value="">
@@ -142,8 +142,8 @@ require_once("./assets/html/header.php");
       </div>
     </div>
     <div class="btn-container">
-      <button type="submit" class="btn-submit"><?= isset($_GET['employee']) ? "Edit" : "Submit" ?></button>
-      <a href="./dashboard.php" class="btn-return">Return</a>
+      <button type="submit" class="btn-submit">Submit</button>
+      <a href="#" class="btn-return">Return</a>
     </div>
 </div>
 </form>
