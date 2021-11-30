@@ -97,7 +97,7 @@ INSERT INTO `employee` (`name`, `lastName`, `email`, `gender`, `age`, `phoneNumb
 ('John', 'Doe', 'jhondoe@foo.com', 'Male', 34, '1283645645', 'San Diego', '55', 'CA', '098765'),
 ('Leila', 'Mills', 'mills@leila.com', 'Female', 29, '2147483647', 'Salt lake city', '90', 'UT', '457320'),
 ('Richard', 'Desmond', 'dismond@foo.com', 'Male', 30, '2147483647', 'Louisville', '43', 'KNT', '445321'),
-('Susan', 'Smith', 'susanmith@baz.com', 'Female', 28, '2147483647', '128', 'Atlanta', 'GEO', '394221'),
+('Susan', 'Smith', 'susanmith@baz.com', 'Female', 28, '2147483647', 'Atlanta', '128', 'GEO', '394221'),
 ('Brad', 'Simpson', 'brad@foo.com', 'Male', 40, '2147483647', 'Nashville', '1', 'TN', '90143'),
 ('Neil', 'Walker', 'walkerneil@baz.com', 'Male', 42, '2147483647', 'New Orleans', '126', 'LU', '63281'),
 ('Robert', 'Thomson', 'jackon@network.com', 'Male', 24, '2147483647', 'San Jone', '126', 'CA', '394221');
