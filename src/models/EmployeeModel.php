@@ -89,6 +89,12 @@ class EmployeeModel extends Model
 
     public function getEmployee($id)
     {
+
+        // try {
+        //     return $this->db->connect("SELECT * FROM employees WHERE id = ?", [$id])[0];
+        // } catch (PDOException $e) {
+        //     return null;
+        // }
         $query = $this->db->connect()->prepare("SELECT * FROM employee WHERE id = :id;");
 
         $query->bindParam(":id", $id);
