@@ -32,7 +32,9 @@ class EmployeeController extends Controller
         // echo "create Employee";
         $employee = $this->model->create($_POST);
         echo json_encode($employee);
-        // $this->view->render('employee/dashboard');
-
+        if ($employee) {
+            header("Location: " . URL . "employee/dashboard");
+            exit;
+        }
     }
 }

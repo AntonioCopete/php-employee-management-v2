@@ -59,6 +59,6 @@ class EmployeeModel extends Model
         } catch (PDOException $e) {
             return [false, $e];
         }
-    }   
+    }
 
 }
