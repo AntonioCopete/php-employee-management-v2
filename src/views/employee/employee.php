@@ -8,13 +8,13 @@
   <title>Employee</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
-  <link rel="icon" href="../favicon.svg">
-  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="icon" href="<?php echo constant('URL') ?>favicon.svg">
+  <link rel="stylesheet" href="<?php echo constant('URL') ?>assets/css/main.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
   <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
-  <script type="module" src="../assets/js/index.js" defer></script>
-  <script type="module" src="../assets/js/gallery.js" defer></script>
+  <script type="module" src="<?php echo constant('URL') ?>assets/js/index.js" defer></script>
+  <script type="module" src="<?php echo constant('URL') ?>assets/js/gallery.js" defer></script>
 </head>
 
 <?php
@@ -83,18 +83,17 @@ require_once("./assets/html/header.php");
     <button id="refresh-button" class="refresh-button">Refresh avatars</button>
   </div>
 
-  <form method="POST" action="<?php echo constant('URL') ?>employee/createEmployee" class="employee-form">
+  <form method="POST" action="<?php echo constant('URL') ?>employee/createEmployee" class="employee-form" class="form__input">
     <div class="form__row">
-      <!-- <input type="hidden" name="id" id="id" class="d-none" value=<?= isset($_GET['employee']) ? $currentEmployee["id"] : $nextId ?>> -->
-      <input type="hidden" name="id" id="id" class="d-none" value="">
+      <input type="hidden" name="id" id="id" value="<?php if(isset($employee['id']) && $employee['id']) echo $employee['id']; ?>">
       <input type="hidden" name="avatar-field" id="avatar-field" class="d-none">
       <div>
         <label for="name">Name</label>
-        <input class="form__input" type="text" name="name" id="name" required value=<?= isset($_GET['employee']) ? $currentEmployee["name"] : "" ?>>
+        <input class="form__input" type="text" name="name" id="name" required value="<?php if(isset($employee['name']) && $employee['name']) echo $employee['name']; ?>">
       </div>
       <div>
         <label for="last-name">Last Name</label>
-        <input class="form__input" type="text" name="lastName" id="lastName" required value=<?= isset($_GET['employee']) ? $currentEmployee["lastName"] : "" ?>>
+        <input class="form__input" type="text" name="lastName" id="lastName" required value="<?php if(isset($employee['lastName']) && $employee['lastName']) echo $employee['lastName']; ?>">
       </div>
     </div>
     <div class="form__row">

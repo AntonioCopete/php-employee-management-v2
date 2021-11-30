@@ -5,7 +5,7 @@
     class="d-flex d-flex-center main-header__container"
   >
     <img
-      src="../assets/images/logo.svg"
+      src="<?php echo constant('URL') ?>assets/images/logo.svg"
       alt="Company logo"
       class="main-header__logo"
     />

@@ -196,8 +196,8 @@ $("#jsGrid").jsGrid({
       cancelEditButtonTooltip: "Cancel edit",
     },
   ],
-  rowClick: function (args) {
-    location.href = "./showEmployeeById/" + args.item.id;
+  rowClick: (args) => {
+    location.href = `${ENDPOINT}/showEmployeeById/${args.item.id}`;
   },
   onItemUpdated: function () {
     let toast = document.getElementById("update-toast");
