@@ -40,21 +40,15 @@ $("#jsGrid").jsGrid({
           "X-Requested-With": "XMLHttpRequest",
         },
       }).then((response) => response.json()),
-    insertItem: async function (item) {
-      let d = $.Deferred();
-      let res = await getJSONData();
-      let newID = res[res.length - 1].id + 1;
-      console.log(newID);
-      item["id"] = newID;
-      return $.ajax({
-        type: "POST",
-        url: "./src/library/employeeController.php",
-        data: item,
-        success: function (data) {
-          return d.resolve(data);
+    insertItem: (item) =>
+      fetch(ENDPOINT + "/createEmployee", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
         },
-      });
-    },
+        body: JSON.stringify(item),
+      }).then((response) => response.json()),
     updateItem: function (item) {
       var d = $.Deferred();
       console.log(item);
@@ -116,7 +110,13 @@ $("#jsGrid").jsGrid({
       title: "Gender",
       type: "text",
       items: ["Male", "Female"],
-      textField: "Name",
+      // items: [
+      //   { Name: "", Id: "" },
+      //   { Name: "Male", Id: "male" },
+      //   { Name: "Female", Id: "female" },
+      // ],
+      // valueField: "Id",
+      // textField: "Name",
       headercss: "table__header",
       css: "table__row",
       width: 50,

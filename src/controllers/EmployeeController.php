@@ -26,4 +26,10 @@ class EmployeeController extends Controller
         $employees = $this->model->get();
         echo json_encode($employees);
     }
+
+    public function createEmployee()
+    {
+        $employee = $this->model->create($_POST);
+        echo json_encode($employee);
+    }
 }
