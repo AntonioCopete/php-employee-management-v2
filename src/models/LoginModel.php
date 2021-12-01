@@ -23,7 +23,6 @@ class LoginModel extends Model
     }
 
     public function checkLogout() {
-        session_start();
         unset($_SESSION['name']);
         if (ini_get("session.use_cookies")) {
             $params = session_get_cookie_params();

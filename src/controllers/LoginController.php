@@ -2,10 +2,12 @@
 
 class LoginController extends Controller
 {
+    private $session;
     public function __construct() {
         parent::__construct();
         $this->view->render('login/index');
         $this->loadModel('login');
+        $this->session = new Session();
     }
 
     public function authUser() {
@@ -13,8 +15,8 @@ class LoginController extends Controller
         $checkLogin = $this->model->checkLogin($_POST["name"], $_POST["password"]);
 
         if (isset($checkLogin)) {
-            session_start();
-            $_SESSION["name"] = $_POST["name"];
+            $this->session->init();
+            $this->session->add('name', $_POST["name"]);
             header("Location: " . URL . "employee/dashboard");
             exit;
         } else {
@@ -28,6 +30,5 @@ class LoginController extends Controller
         header("Location: " . URL . "");
         exit;
     }
-
 
 }

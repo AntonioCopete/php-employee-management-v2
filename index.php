@@ -6,6 +6,7 @@ require_once "src/libs/classes/Controller.php";
 require_once "src/libs/classes/View.php";
 require_once "src/libs/classes/Model.php";
 require_once "src/libs/Database.php";
+require_once "src/libs/Session.php";
 
 $router = new Router();
 
