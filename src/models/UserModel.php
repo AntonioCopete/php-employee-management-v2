@@ -91,12 +91,27 @@ class UserModel extends Model
 
     public function getByName($name)
     {
-        $query = $this->db->connect()->prepare("SELECT * FROM users WHERE name = $name;");
+        $query = $this->db->connect()->prepare("SELECT * FROM users where name=:name;");
+
+        $query->bindParam(":name", $name);
+
+        $items = [];
 
         try {
             $query->execute();
-            $user = $query->fetch();
-            return $user;
+            $result = $query->fetch();
+
+            $item = new User();
+
+            $item->userId = $result['userId'];
+            $item->name = $result['name'];
+            $item->email = $result['email'];
+            $item->password = $result['password'];
+            $item->role = $result['role'];
+
+            array_push($items, $item);
+
+            return $items;
         } catch (PDOException $e) {
             echo $e;
         }

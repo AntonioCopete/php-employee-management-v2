@@ -8,8 +8,9 @@ class SignupModel extends Model
         parent::__construct();
     }
 
-    public function create($user) {
-        $query = $this->db->connect()->prepare("INSERT INTO users (name, password, email) VALUES (:name, :password, :email);");
+    public function create($user)
+    {
+        $query = $this->db->connect()->prepare("INSERT INTO users (name, password, email, role) VALUES (:name, :password, :email, 'user');");
 
         $encryptedPassword = password_hash($user["password"], PASSWORD_DEFAULT);
 
