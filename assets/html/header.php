@@ -19,8 +19,11 @@
         </li>
         <li class="nav-link">
           <a href="<?php echo constant('URL') ?>employee/showEmployee"
-            >Employee</a
-          >
+            >Employee</a>
+        </li>
+        <li class="nav-link">
+          <a href="<?php echo constant('URL') ?>user"
+            >User</a>
         </li>
       </ul>
     </nav>

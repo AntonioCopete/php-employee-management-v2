@@ -2,8 +2,9 @@
 
 class User
 {
-    public $id;
+    public $userId;
     public $name;
     public $email;
-    public $password;
+    // public $password;
+    public $role;
 }

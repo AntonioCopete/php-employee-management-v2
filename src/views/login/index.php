@@ -21,7 +21,7 @@
       </label>
       <input class="login__btn" type="submit" value="Login">
     </form>
-    <p>Click here if you do not have any account <a href="<?php echo constant('URL') ?>signup/showSignup">Register</a></p>
+    <p>Click here if you do not have any account <a href="<?php echo constant('URL') ?>signup">Register</a></p>
   </div>
 </body>
 </html>

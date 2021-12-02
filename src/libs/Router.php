@@ -5,7 +5,7 @@ class Router
     public function __construct()
     {
         $url = isset($_GET['url']) ? $_GET['url'] : null;
-        $url = rtrim($url, '/');
+        $url = rtrim($url, '/'); // strip whitespace (or other characters) from the end of a string
         $url = explode('/', $url);
 
         if (empty($url[0])) {
