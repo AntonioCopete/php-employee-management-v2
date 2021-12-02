@@ -1,79 +1,54 @@
-`#php` `#mvc` `#master-in-software-engineering`
+`#html` `#css` `#php` `#bootstrap` `#javascript` `#jquery` `#jsgrid` `#mvc` `#oop` `#sql`
 
-# Employee Management V2 <!-- omit in toc -->
 
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-2.0-blue.svg?cacheSeconds=2592000" />
-</p>
+# Employee Management v2
 
-> This project provides an easy-to-use interface to manage employees information. The application user case starts with an user log in, and allows the user to read, create, delete and update the employee´s information. The user and employee data is stored in a database.
+Whe had to refactorize adding MVC, mySQL and OOP to an employee manager,
+which allows users to perform CRUD operations over a database of employees,
+showing the data in a table made with the jsGrid library.
+The application makes use of user sessions and encrypted passwords.
+## Installation
 
-> This project objective is to create a file structure following the MVC pattern, with a basic router implementation and OOP approach.
-
-## Index <!-- omit in toc -->
-
-- [Requirements](#requirements)
-- [Install - Run](#install---run)
-- [Technologies used](#technologies-used)
-- [Download project](#download-project)
-- [Usage](#usage)
-- [Based on](#based-on)
-
-## Requirements
-
-- You need to have a database with all the employees and users in your mysql workspace. We provide you with all the required queries to create the database, its tables and insert mock data inside the **resources** folder.
-- Set your database configuration on the **config/db.php** file. (username, password, dbname etc.)
-
-## Install - Run
-
-The project dependencies are already referenced in the **package-lock.json** file in the root folder. For that reason, it is only necesary to run the following command to allow these to work:
-
-```sh
-npm instal
+Clone the repository.
+ ```http
+  git clone https://github.com/AntonioCopete/php-employee-management-v2.git
 ```
-
-In order to complete/execute this project, the set up of a server environment and PHP interpreter is needed. You need to have at least PHP v7.4 or above to develop this project, which is capable of running PHP to its latest version.
-
-- XAMPP with PHP >= 7.4
-
+Install dependencies.
+ ```http
+  npm install
+```
 ## Technologies used
 
-\* Visual Studio Code - Developement IDE
+- HTML
+- CSS
+- PHP
+- Javascript
+- Jquery
+- jsGrid
+- Bootstrap
+- MVC
+- OOP
+- mySQL
 
-\* HTML - Markup Language
+  
+# Project goal
+- Improve knowledge of session variables in PHP.
 
-\* CSS - Style Sheet Language
+- Learn to create a login page.
 
-\* Javascript - Programming Language
+- Handle the session throughout all pages.
 
-\* Bootstrap - Front-end Library
+- Learn to handle encrypted data.
 
-\* JQuery - JS library
+- Improve knowledge of reading and writing JSON files.
 
-\* JS-Grid - JS library
+- Learn to work with a predefined structure.
 
-\* PHP - Scripting language
+- Make use of the MVC design pattern to organize the logic and files.
 
-\* XAMPP - Open source cross-platform web server
+- Add OOP to MVC.
 
-## Download project
-
-To download or install this project in your local computer, either clone the repository or downdload. In order to run the project, please refer to the **requirements** and **install** section in this README file.
-
-## Usage
-
-```sh
-This project could be used to manage employee information.
-```
-
-## Based on
-
-This repository is based on a past delivery from master's students:
-
-👤 **Víctor Martínez**
-
-👤 **Ismael Vázquez**
-
----
-
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+- Change the old .json file for a mySQL database
+## 🔗 Authors
+- [@Tam](https://github.com/tamtran2885)
+- [@Antonio](https://github.com/AntonioCopete)
