@@ -20,6 +20,8 @@ class UserModel extends Model
                 $item->userId = $row['userId'];
                 $item->name = $row['name'];
                 $item->email = $row['email'];
+                $item->password = $row['password'];
+
                 $item->role = $row['role'];
 
                 array_push($items, $item);
@@ -31,4 +33,59 @@ class UserModel extends Model
         }
     }
 
+    public function create($user)
+    {
+        $query = $this->db->connect()->prepare("INSERT INTO users (name, email, role, password) VALUES (:name, :email, :role, :password);");
+
+        // $password = password_hash($user["password"], PASSWORD_DEFAULT);
+
+        $query->bindParam(":name", $user["name"]);
+        $query->bindParam(":email", $user["email"]);
+        $query->bindParam(":role", $user["role"]);
+        $query->bindParam(":password", $user["password"]);
+
+
+
+        try {
+            $query->execute();
+            return [true];
+        } catch (PDOException $e) {
+            return [false, $e];
+        }
+    }
+
+    public function update($user)
+    {
+        $query = $this->db->connect()->prepare("UPDATE users
+        SET name=:name, email=:email, role=:role, password=:password WHERE userId =  :userId;");
+
+        $query->bindParam(":name", $user["name"]);
+        $query->bindParam(":email", $user["email"]);
+        $query->bindParam(":role", $user["role"]);
+
+        // $password = password_hash($user["password"], PASSWORD_DEFAULT);
+        $query->bindParam(":password", $user["password"]);
+
+        $query->bindParam(":userId", $user["userId"]);
+
+
+        try {
+            $query->execute();
+            return [true];
+        } catch (PDOException $e) {
+            return [false, $e];
+        }
+    }
+
+    public function delete($userId)
+    {
+        $query = $this->db->connect()->prepare("DELETE FROM users WHERE userId = $userId;");
+
+        try {
+            $query->execute();
+            return [true];
+        } catch (PDOException $e) {
+            return [false, $e];
+        }
+    }
 }
