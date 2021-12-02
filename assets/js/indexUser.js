@@ -19,7 +19,7 @@ $("#jsGridUser").jsGrid({
         },
       }).then((response) => response.json()),
     insertItem: (item) =>
-      fetch(ENDPOINT + "/createUserJsGrid", {
+      fetch(ENDPOINT + "/createUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +29,7 @@ $("#jsGridUser").jsGrid({
       }).then((response) => response.json()),
 
     updateItem: (item) =>
-      fetch(ENDPOINT + "/updateUserJsGrid", {
+      fetch(ENDPOINT + "/updateUser", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -55,6 +55,7 @@ $("#jsGridUser").jsGrid({
       type: "hidden",
       css: "hide",
       width: 50,
+      visible: false,
     },
     {
       name: "name",
@@ -72,6 +73,15 @@ $("#jsGridUser").jsGrid({
       headercss: "table__header",
       css: "table__row",
       width: 50,
+      validate: "required",
+    },
+    {
+      name: "password",
+      title: "Password",
+      type: "text",
+      headercss: "table__header",
+      css: "table__row",
+      width: 110,
       validate: "required",
     },
     {
