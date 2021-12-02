@@ -19,7 +19,7 @@ $("#jsGridUser").jsGrid({
         },
       }).then((response) => response.json()),
     insertItem: (item) =>
-      fetch(ENDPOINT + "/createEmployeeJsGrid", {
+      fetch(ENDPOINT + "/createUserJsGrid", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +29,7 @@ $("#jsGridUser").jsGrid({
       }).then((response) => response.json()),
 
     updateItem: (item) =>
-      fetch(ENDPOINT + "/updateEmployeeJsGrid", {
+      fetch(ENDPOINT + "/updateUserJsGrid", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -39,7 +39,7 @@ $("#jsGridUser").jsGrid({
       }).then((response) => response.json()),
 
     deleteItem: (item) =>
-      fetch(ENDPOINT + "/deleteEmployee", {
+      fetch(ENDPOINT + "/deleteUser", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -54,6 +54,7 @@ $("#jsGridUser").jsGrid({
       title: "UserID",
       type: "hidden",
       css: "hide",
+      width: 50,
     },
     {
       name: "name",
@@ -70,7 +71,7 @@ $("#jsGridUser").jsGrid({
       type: "text",
       headercss: "table__header",
       css: "table__row",
-      width: 110,
+      width: 50,
       validate: "required",
     },
     {
@@ -81,6 +82,17 @@ $("#jsGridUser").jsGrid({
       css: "table__row",
       width: 40,
       validate: "required",
+    },
+    {
+      type: "control",
+      headercss: "table__header",
+      css: "table__row",
+      editButton: true,
+      deleteButton: true,
+      editButtonTooltip: "Edit",
+      deleteButtonTooltip: "Delete",
+      updateButtonTooltip: "Update",
+      cancelEditButtonTooltip: "Cancel edit",
     },
   ],
   rowClick: (args) => {
@@ -102,7 +114,7 @@ $("#jsGridUser").jsGrid({
   },
 });
 
-$("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
+$("#jsGridUser").jsGrid("fieldOption", "id", "visible", false);
 
 let toast = document.getElementById("toast");
 if (toast) {

@@ -22,7 +22,7 @@
             >Employee</a>
         </li>
         <li class="nav-link">
-          <a href="<?php echo constant('URL') ?>user"
+          <a href="<?php echo constant('URL') ?>user/user"
             >User</a>
         </li>
       </ul>
