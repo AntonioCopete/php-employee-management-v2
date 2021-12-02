@@ -22,6 +22,22 @@ class LoginModel extends Model
         }
     }
 
+    public function checkUserRole($name, $password) {
+        $query = $this->db->connect()->prepare('SELECT * FROM users WHERE name = :name');
+        $query->bindParam(":name", $name);
+
+        try {
+            $query->execute();
+            $user = $query->fetch();
+            if (password_verify($password, $user["password"])) {
+                $role = $user["role"];
+                return $role;
+            }
+        } catch (PDOException $e) {
+            return [false, $e];
+        }
+    }
+
     public function checkLogout() {
         unset($_SESSION['name']);
         if (ini_get("session.use_cookies")) {

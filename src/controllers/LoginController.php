@@ -13,10 +13,12 @@ class LoginController extends Controller
     public function authUser() {
 
         $checkLogin = $this->model->checkLogin($_POST["name"], $_POST["password"]);
+        $checkUserRole = $this->model->checkUserRole($_POST["name"], $_POST["password"]);
 
         if (isset($checkLogin)) {
             $this->session->init();
             $this->session->add('name', $_POST["name"]);
+            $this->session->add('role', $checkUserRole);
             header("Location: " . URL . "employee/dashboard");
             exit;
         } else {

@@ -15,9 +15,14 @@ class UserController extends Controller
             exit('No permission');
     }
 
+    public function admin()
+    {
+        $this->view->render('user/admin');
+    }
+
     public function user()
     {
-        $this->view->render('user/index');
+        $this->view->render('user/user');
     }
 
     public function getUsers()
@@ -44,5 +49,11 @@ class UserController extends Controller
     {
         $user = json_decode(file_get_contents("php://input"), true);
         $this->model->delete($user['userId']);
+    }
+
+    public function getUserByName()
+    {
+        $user = $this->model->getByName($_SESSION['name']);
+        echo json_encode($user);
     }
 }

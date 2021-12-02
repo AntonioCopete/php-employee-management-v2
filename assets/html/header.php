@@ -10,10 +10,16 @@
         <li class="nav-link">
           <a href="<?php echo constant('URL') ?>employee/showEmployee">Employee</a>
         </li>
-        <li class="nav-link">
-          <a href="<?php echo constant('URL') ?>user/user"
-            >User</a>
-        </li>
+        <?php
+        if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') { ?>
+        <li class="nav-link"><a href="<?php echo constant('URL') ?>user/admin">Admin</a></li>
+        <?php } ?>
+
+        <?php
+        if(isset($_SESSION['role']) && $_SESSION['role'] == 'user') { ?>
+        <li class="nav-link"><a href="<?php echo constant('URL') ?>user/user">User</a></li>
+        <?php } ?>
+        
       </ul>
     </nav>
   </div>

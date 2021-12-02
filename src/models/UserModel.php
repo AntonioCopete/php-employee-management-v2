@@ -88,4 +88,17 @@ class UserModel extends Model
             return [false, $e];
         }
     }
+
+    public function getByName($name)
+    {
+        $query = $this->db->connect()->prepare("SELECT * FROM users WHERE name = $name;");
+
+        try {
+            $query->execute();
+            $user = $query->fetch();
+            return $user;
+        } catch (PDOException $e) {
+            echo $e;
+        }
+    }
 }

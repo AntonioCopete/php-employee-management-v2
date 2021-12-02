@@ -58,7 +58,6 @@ class EmployeeController extends Controller
     public function showEmployeeById($id)
     {
         $this->view->employee = $this->model->getEmployee($id);
-        // echo $employee['name'];
         $this->view->render("employee/employee");
     }
 

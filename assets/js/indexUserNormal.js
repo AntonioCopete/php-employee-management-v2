@@ -1,11 +1,10 @@
-const ENDPOINT =
-  document.getElementById("navBar").dataset["base_url"] + "employee";
+const ENDPOINT = document.getElementById("navBar").dataset["base_url"] + "user";
 
-$("#jsGrid").jsGrid({
+$("#jsGridUserNormal").jsGrid({
   autoload: true,
   width: "100%",
   height: "600px",
-  inserting: true,
+  // inserting: true,
   editing: true,
   sorting: true,
   paging: true,
@@ -14,13 +13,13 @@ $("#jsGrid").jsGrid({
   deleteConfirm: "Do you really want to delete data?",
   controller: {
     loadData: () =>
-      fetch(ENDPOINT + "/getEmployees", {
+      fetch(ENDPOINT + "/getUserByName", {
         headers: {
           "X-Requested-With": "XMLHttpRequest",
         },
       }).then((response) => response.json()),
     insertItem: (item) =>
-      fetch(ENDPOINT + "/createEmployeeJsGrid", {
+      fetch(ENDPOINT + "/createUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,7 +29,7 @@ $("#jsGrid").jsGrid({
       }).then((response) => response.json()),
 
     updateItem: (item) =>
-      fetch(ENDPOINT + "/updateEmployeeJsGrid", {
+      fetch(ENDPOINT + "/updateUser", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -40,7 +39,7 @@ $("#jsGrid").jsGrid({
       }).then((response) => response.json()),
 
     deleteItem: (item) =>
-      fetch(ENDPOINT + "/deleteEmployee", {
+      fetch(ENDPOINT + "/deleteUser", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -51,8 +50,11 @@ $("#jsGrid").jsGrid({
   },
   fields: [
     {
-      name: "id",
-      title: "ID",
+      name: "userId",
+      title: "UserID",
+      type: "hidden",
+      css: "hide",
+      width: 50,
       visible: false,
     },
     {
@@ -65,8 +67,8 @@ $("#jsGrid").jsGrid({
       validate: "required",
     },
     {
-      name: "lastName",
-      title: "Last name",
+      name: "email",
+      title: "Email",
       type: "text",
       headercss: "table__header",
       css: "table__row",
@@ -74,8 +76,8 @@ $("#jsGrid").jsGrid({
       validate: "required",
     },
     {
-      name: "email",
-      title: "Email",
+      name: "password",
+      title: "Password",
       type: "text",
       headercss: "table__header",
       css: "table__row",
@@ -83,74 +85,13 @@ $("#jsGrid").jsGrid({
       validate: "required",
     },
     {
-      name: "gender",
-      title: "Gender",
+      name: "role",
+      title: "Role",
       type: "text",
-      items: ["Male", "Female"],
-      // items: [
-      //   { Name: "", Id: "" },
-      //   { Name: "Male", Id: "male" },
-      //   { Name: "Female", Id: "female" },
-      // ],
-      // valueField: "Id",
-      // textField: "Name",
       headercss: "table__header",
       css: "table__row",
-      width: 50,
+      width: 40,
       validate: "required",
-    },
-    {
-      name: "age",
-      title: "Age",
-      type: "number",
-      headercss: "table__header",
-      css: "table__row",
-      width: 40,
-      validate: function (value) {
-        if (value > 0) {
-          return true;
-        }
-      },
-    },
-    {
-      name: "postalCode",
-      title: "Postal code",
-      type: "number",
-      headercss: "table__header",
-      css: "table__row",
-      width: 40,
-    },
-    {
-      name: "phoneNumber",
-      title: "Phone number",
-      type: "number",
-      headercss: "table__header",
-      css: "table__row",
-      width: 60,
-    },
-    {
-      name: "state",
-      title: "State",
-      type: "text",
-      headercss: "table__header",
-      css: "table__row",
-      width: 50,
-    },
-    {
-      name: "streetAddress",
-      title: "Street address",
-      type: "text",
-      headercss: "table__header",
-      css: "table__row",
-      width: 40,
-    },
-    {
-      name: "city",
-      title: "City",
-      type: "text",
-      headercss: "table__header",
-      css: "table__row",
-      width: 60,
     },
     {
       type: "control",
@@ -164,9 +105,9 @@ $("#jsGrid").jsGrid({
       cancelEditButtonTooltip: "Cancel edit",
     },
   ],
-  rowClick: (args) => {
-    location.href = `${ENDPOINT}/showEmployeeById/${args.item.id}`;
-  },
+  // rowClick: (args) => {
+  //   location.href = `${ENDPOINT}/showEmployeeById/${args.item.id}`;
+  // },
   onItemUpdated: function () {
     let toast = document.getElementById("update-toast");
     toast.classList.remove("toast");
@@ -183,7 +124,7 @@ $("#jsGrid").jsGrid({
   },
 });
 
-$("#jsGrid").jsGrid("fieldOption", "id", "visible", false);
+$("#jsGridUserNormal").jsGrid("fieldOption", "id", "visible", false);
 
 let toast = document.getElementById("toast");
 if (toast) {
