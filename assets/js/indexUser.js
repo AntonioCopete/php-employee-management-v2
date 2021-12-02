@@ -52,8 +52,7 @@ $("#jsGridUser").jsGrid({
     {
       name: "userId",
       title: "UserID",
-      type: "hidden",
-      css: "hide",
+      visible: false,
     },
     {
       name: "name",
