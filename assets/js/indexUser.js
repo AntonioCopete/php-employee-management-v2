@@ -83,6 +83,7 @@ $("#jsGridUser").jsGrid({
       css: "table__row",
       width: 110,
       validate: "required",
+      editing: false,
     },
     {
       name: "role",
