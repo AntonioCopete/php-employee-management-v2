@@ -91,7 +91,7 @@ class UserModel extends Model
 
     public function getByName($name)
     {
-        $query = $this->db->connect()->prepare("SELECT * FROM users WHERE name = $name;");
+        $query = $this->db->connect()->query("SELECT * FROM users WHERE name LIKE $name;");
 
         try {
             $query->execute();
