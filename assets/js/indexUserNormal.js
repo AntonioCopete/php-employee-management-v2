@@ -66,6 +66,7 @@ $("#jsGridUserNormal").jsGrid({
       css: "table__row",
       width: 50,
       validate: "required",
+      editing: false,
     },
     {
       name: "email",
